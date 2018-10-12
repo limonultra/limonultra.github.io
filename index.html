@@ -24,10 +24,10 @@
 	 <nav class="purple darken-4 z-depth-5">
 	  <div class="container">
 	   <div class="nav-wrapper"> 
-		<a href="#" class="brand-logo">Bojack Horseman</a>
+		<a href="#!" class="brand-logo truncate">Bojack Horseman</a>
 		<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 		<ul class="right hide-on-med-and-down">
-		<li class="active"><a href="#home"><i class="material-icons right">home</i>Home</a></li>
+		<li><a href="#home"><i class="material-icons right">home</i>Home</a></li>
         <li><a href="#gallery"><i class="material-icons right">view_module</i>Gallery</a></li>
 		<li><a href="#contact"><i class="material-icons right">account_circle</i>Contact</a></li>
 		</div>
@@ -46,7 +46,7 @@
   			<a href="#">Contact</a>
   		</li>
  
-</ul>
+		</ul>
 
 
  <!--Floating action button-->
@@ -127,6 +127,20 @@
 	  interval: 6000
   });
   </script>
+
+   <!--Smooth scrolling for menu buttons and sidenav functionality-->
+  <script>
+  	const ss = document.querySelectorAll('.scrollspy');
+  	M.ScrollSpy.init(ss, {});
+  	const sideNav = document.querySelector('.sidenav');
+  	M.Sidenav.init(sideNav, {});
+  	const modal = document.querySelectorAll('.modal');
+  	M.Modal.init(modal, {});
+       //Materia Boxed
+       const mb = document.querySelectorAll('.materialboxed');
+       M.Materialbox.init(mb, {});
+   </script>
+
 
    <!--Smooth scrolling for floating button-->
    <script type="text/javascript">
