@@ -1,0 +1,60 @@
+	<!––quote box -->
+
+<div class="row">
+<div class="col s4">
+    <blockquote class="quote-box">
+      <p class="quotation-mark">
+        “
+      </p>
+      <p class="quote-text">
+        Los animales son amigos, no comida.
+      </p>
+      <hr>
+      <div class="blog-post-actions">
+        <p class="blog-post-bottom pull-left">
+          Nemo o alguien así.
+        </p>
+        <p class="blog-post-bottom pull-right">
+        </p>
+      </div>
+    </blockquote>
+	</div> 
+	
+	<div class="col s4">
+    <blockquote class="quote-box">
+      <p class="quotation-mark">
+        “
+      </p>
+      <p class="quote-text">
+        Crack an egg in your head. Let the yolk drip down.
+      </p>
+      <hr>
+      <div class="blog-post-actions">
+        <p class="blog-post-bottom pull-left">
+          Mr.Peanut butter
+        </p>
+        <p class="blog-post-bottom pull-right">
+        </p>
+      </div>
+    </blockquote>
+	</div>
+	
+	<div class="col s4">
+    <blockquote class="quote-box">
+      <p class="quotation-mark">
+        “
+      </p>
+      <p class="quote-text">
+        There's no shame in dying for nothing, that's why most people die. 
+      </p>
+      <hr>
+      <div class="blog-post-actions">
+        <p class="blog-post-bottom pull-left">
+          Henry Winkler
+        </p>
+        <p class="blog-post-bottom pull-right">
+        </p>
+      </div>
+    </blockquote>
+	</div>
+</div>
