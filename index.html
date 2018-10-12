@@ -25,7 +25,8 @@
 	  <div class="container">
 	   <div class="nav-wrapper"> 
 		<a href="#" class="brand-logo">Bojack Horseman</a>
-		<ul id="nav-mobile" class="right hide-on-med-and-down">
+		<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+		<ul class="right hide-on-med-and-down">
 		<li class="active"><a href="#home"><i class="material-icons right">home</i>Home</a></li>
         <li><a href="#gallery"><i class="material-icons right">view_module</i>Gallery</a></li>
 		<li><a href="#contact"><i class="material-icons right">account_circle</i>Contact</a></li>
@@ -34,12 +35,26 @@
 	 </nav>
 	</div>
 
+	<ul class="sidenav" id="mobile-demo">
+  		<li>
+  			<a href="#home">Home</a>
+  		</li>
+  		<li>
+  			<a href="#gallery">Gallery</a>
+  		</li>
+  		<li>
+  			<a href="#">Contact</a>
+  		</li>
+ 
+</ul>
 
-<div class="fixed-action-btn">
-  <a  href="#" class="btn-floating btn purple">
-    <i class="fas fa-arrow-up"></i>
-  </a>
-</div>
+
+ <!--Floating action button-->
+  <div class="fixed-action-btn">
+  	<a href="#" class="btn-floating btn-large pink back-to-top">
+  		<i class="large material-icons">arrow_upward</i>
+  	</a>
+  </div>
       
 
 <div class="box" id="home">
@@ -59,6 +74,18 @@
 	
 <div class="row">
 </div>
+
+<!--Conteo de estrellitas-->
+<section>
+  			<div class="container">
+  				<div class="row">
+  					<div class="col s12">
+  						<h4 id="starRating" class="star">
+  						</h4>
+  					</div>
+  				</div>
+  			</div>
+</section>
 
 	<section class="slider" id="gallery">
     <ul class="slides">
@@ -101,13 +128,57 @@
   });
   </script>
 
+   <!--Smooth scrolling for floating button-->
+   <script type="text/javascript">
+   	$('a.back-to-top, a.simple-back-to-top').click(function() {
+   		$('html, body').animate({
+   			scrollTop: 0
+   		}, 700);
+   		return false;
+   	});
+   </script>
+
+   <!--Get stars from github repository-->
    <script>
-	document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.fixed-action-btn');
-    var instances = M.FloatingActionButton.init(elems, options);
-  });
-  </script>
-        
+   	/*$.getJSON('https://api.github.com/repos/limonultra/limonultra.github.io', function(data) {
+   		var text = `Estrellas: ${data.stargazers_count}`
+   		text = text.concat(" <i class="far fa-star"></i>");
+   		$(".starRating").html(text);
+   	});*/
+   	document.addEventListener("DOMContentLoaded", function(){
+   		getStars();
+   	});
+
+   	function getStars(){
+   		loadJSON('https://api.github.com/repos/limonultra/limonultra.github.io',
+   			function(data) { console.log(data); },
+   			function(xhr) { console.error(xhr); }
+   			);
+   	}
+
+   	function loadJSON(path, success, error)
+   	{
+   		var xhr = new XMLHttpRequest();
+   		xhr.onreadystatechange = function()
+   		{
+   			if (xhr.readyState === XMLHttpRequest.DONE) {
+   				if (xhr.status === 200) {
+   					if (success){
+   						var myParsed =JSON.parse(xhr.responseText);
+   						console.log(myParsed.stargazers_count);
+   						document.getElementById("starRating").innerHTML= "Estrellas en Hollywoo: "+ myParsed.stargazers_count + " <i class=\"far fa-star\"></i>";
+   						$("i.loader").remove();
+   					}
+   				} else {
+   					if (error)
+   						error(xhr);
+   				}
+   			}
+   		};
+   		xhr.open("GET", path, true);
+   		xhr.send();
+   	}
+</script>      
 
 
 </body>
